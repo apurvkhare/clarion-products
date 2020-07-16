@@ -1,0 +1,22 @@
+{
+    "products":[
+        {
+            "id": 1,
+            "name": "iPhone",
+            "rate": 89999,
+            "quality": 1
+        },
+        {
+            "id": 2,
+            "name": "MacBook",
+            "rate": 129999,
+            "quality": 2
+        },
+        {
+            "id": 3,
+            "name": "iPad",
+            "rate": 99999,
+            "quality": 3
+        }
+    ]
+}

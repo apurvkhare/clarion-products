@@ -1,25 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import data from "./data/data.json";
 
 function App() {
+
+  //const products = data.products;
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [products, setProducts] = useState(data.products);
+
+  const addProduct = product => {
+    setProducts([...products, product]);
+  }
+
+  const deleteProduct = id => {
+    const filteredProducts = products.filter(product => {
+      if(product.id !== id){
+        return true;
+      }else{
+        return false;
+      }
+    });
+    setProducts(filteredProducts);
+    console.log(products);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+      <Route exact path="/">
+      <Login email={email} password={password} setEmail={setEmail} setPassword={setPassword}/>
+      </Route>
+      <Route exact path="/dashboard">
+        <Dashboard email={email} products={products} addProduct={addProduct} deleteProduct={deleteProduct}/>
+      </Route>
+      </Switch>
+    </Router>
   );
 }
 

@@ -1,0 +1,13 @@
+.container{
+    margin: 0 5rem;
+}
+
+.header{
+    text-align: center;
+}
+
+.addbtn{
+    margin-left: 20rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}

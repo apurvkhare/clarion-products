@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 10rem;
+}
+button{
+    width: 40%;
+}
+.line{
+    width: 100%;
+}
